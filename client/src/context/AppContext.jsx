@@ -38,7 +38,7 @@ export const AppProvider = ({ children }) => {
 
   const fetchCars = async () => {
     try {
-      const { data } = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/user/users`);
+      const { data } = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/user/user`);
       data.success ? setCars(data.cars) : toast.error(data.message);
     } catch (error) {
       toast.error(error.message);
