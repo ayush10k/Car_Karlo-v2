@@ -14,7 +14,7 @@ const Login = () => {
     try {
       event.preventDefault();
       const { data } = await axios.post(
-        `/api/user/${state}`,
+       `${import.meta.env.VITE_BASE_URL}/api/user/${state}`,
         {
           name,
           email,

@@ -11,7 +11,7 @@ const ManageCars = () => {
 
   const fetchOwnerCars = async () => {
     try {
-      const { data } = await axios.get("/api/owner/cars");
+      const { data } = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/owner/cars`);
       if (data.success) {
         setCars(data.cars);
       } else {
@@ -25,7 +25,7 @@ const ManageCars = () => {
   const toggleAvailability = async (carId) => {
     try {
       const { data } = await axios.post(
-        "/api/owner/toggle-car",
+        `${import.meta.env.VITE_BASE_URL}/api/owner/toggle-car`,
         { carId }
       );
       if (data.success) {
@@ -48,7 +48,7 @@ const ManageCars = () => {
       if (!confirm) return null;
 
       const { data } = await axios.post(
-        "/api/owner/delete-car",
+        `${import.meta.env.VITE_BASE_URL}/api/owner/delete-car`,
         { carId }
       );
       if (data.success) {

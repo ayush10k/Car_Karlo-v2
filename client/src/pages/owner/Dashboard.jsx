@@ -38,7 +38,7 @@ const Dashboard = () => {
   const fetchDashboardData = async () => {
     try {
       const { data } = await axios.get(
-        "/api/owner/dashboard"
+       `${import.meta.env.VITE_BASE_URL}/api/owner/dashboard`
       );
       if (data.success) {
         setData(data.dashboardData);

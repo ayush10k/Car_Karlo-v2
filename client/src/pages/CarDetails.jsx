@@ -19,7 +19,7 @@ const CarDetails = () => {
   const handleSubmit = async (e)=>{
     e.preventDefault();
     try {
-      const {data} = await axios.post('/api/bookings/create', {
+      const {data} = await axios.post(`${import.meta.env.VITE_BASE_URL}/api/bookings/create`, {
         car: id,
         pickupDate, 
         returnDate

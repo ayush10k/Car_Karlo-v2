@@ -33,7 +33,7 @@ const AddCar = () => {
       formData.append("carData", JSON.stringify(car));
 
       const { data } = await axios.post(
-        "/api/owner/add-car",
+        `${import.meta.env.VITE_BASE_URL}/api/owner/add-car`,
         formData
       );
 

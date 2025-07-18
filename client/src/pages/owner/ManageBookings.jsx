@@ -11,7 +11,7 @@ const ManageBookings = () => {
   const fetchOwnerBookings = async () => {
     try {
       const { data } = await axios.get(
-        "/api/bookings/owner"
+        `${import.meta.env.VITE_BASE_URL}/api/bookings/owner`
       );
       data.success ? setBookings(data.bookings) : toast.error(data.message);
     } catch (error) {
@@ -22,7 +22,7 @@ const ManageBookings = () => {
   const changeBookingStatus = async (bookingId, status) => {
     try {
       const { data } = await axios.post(
-        "/api/bookings/change-status",
+        `${import.meta.env.VITE_BASE_URL}/api/bookings/change-status`,
         { bookingId, status }
       );
       if (data.success) {
