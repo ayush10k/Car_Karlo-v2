@@ -23,7 +23,7 @@ export const AppProvider = ({ children }) => {
   // Function to check if user is logged in
   const fetchUser = async () => {
     try {
-      const { data } = await axios.get(`${process.env.VITE_BASE_URL}/api/user/data`);
+      const { data } = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/user/data`);
       if (data.success) {
         setUser(data.user);
         setIsOwner(data.user.role === "owner");
@@ -38,7 +38,7 @@ export const AppProvider = ({ children }) => {
 
   const fetchCars = async () => {
     try {
-      const { data } = await axios.get(`${process.env.VITE_BASE_URL}/api/user/users`);
+      const { data } = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/user/users`);
       data.success ? setCars(data.cars) : toast.error(data.message);
     } catch (error) {
       toast.error(error.message);
